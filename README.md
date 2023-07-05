@@ -50,4 +50,18 @@ protoc -I=. ./proto/*.proto \
 
 > `--grpc-web_out=import_style=typescript,mode=grpcwebtext:./src/grpc-web`: This flag specifies the output format for the generated gRPC-Web code. It generates TypeScript code using the specified import style and mode, and the output directory is set to "./src/grpc-web". The --grpc-web_out flag is used for generating gRPC-Web code.
 
+<hr>
+Added grpc dependencies 12:50AM
+```
+yarn add -D @grpc/grpc-js @grpc/proto-loader google-protobuf
+```
+<hr>
 
+7/6/23 4:12PM
+Added `proto-gen.sh` file. It added ts files. Seems like it added 
+- TypeScript types for gRPC service definitions into the ./proto/chat folder 
+The proto-gen.sh file:
+```sh
+#!/bin/bash
+yarn proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=proto/ proto/*.proto
+```

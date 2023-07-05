@@ -35,6 +35,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "google-protobuf": "^3.21.2",
     "html-webpack-plugin": "^5.5.3",
     "protoc-gen-grpc-web": "^1.4.2",
     "style-loader": "^3.3.3",
