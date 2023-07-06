@@ -1,5 +1,6 @@
 import './styles.css';
 import {useState,useEffect} from 'react';
+import SendMessage from './SendMessage';
 export const App = () => {
     const [text,setText] = useState('');
     const handleChange = (e:any) => {
@@ -20,6 +21,7 @@ export const App = () => {
             <p>{process.env.name}</p>
             <input type="text" onChange={handleChange} />
             <button onSubmit={handleSubmit}>Submit</button>
+            <SendMessage />
         </div>
     )
 }

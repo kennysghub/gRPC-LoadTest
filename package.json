@@ -7,6 +7,7 @@
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev --open",
     "build": "webpack  --config webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "server": "ts-node ./server/grpcServer.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,7 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "redis": "^4.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.22.6",

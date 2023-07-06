@@ -1,6 +1,7 @@
 # gRPSeek - Alpha
 
 ```bash
+├── README.md
 ├── build
 │   ├── bundle.js
 │   ├── bundle.js.LICENSE.txt
@@ -8,11 +9,25 @@
 │   └── index.html
 ├── package.json
 ├── proto
-│   └── chat.proto
+│   ├── chat
+│   │   ├── ChatMessage.ts
+│   │   ├── ChatResponse.ts
+│   │   └── ChatService.ts
+│   ├── chat.proto
+│   └── chat.ts
+├── proto-client.sh
+├── proto-gen.sh
+├── server
+│   └── grpcServer.ts
+├── server.ts
 ├── src
 │   ├── App.tsx
 │   ├── index.html
 │   ├── index.tsx
+│   ├── proto
+│   │   ├── ChatServiceClientPb.ts
+│   │   ├── chat_pb.d.ts
+│   │   └── chat_pb.js
 │   └── styles.css
 ├── tsconfig.json
 ├── webpack
@@ -20,7 +35,9 @@
 │   ├── webpack.config.js
 │   ├── webpack.dev.js
 │   └── webpack.prod.js
+├── yarn-error.log
 └── yarn.lock
+
 ```
 
 - July 5th 12:08 AM
@@ -65,3 +82,4 @@ The proto-gen.sh file:
 #!/bin/bash
 yarn proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=proto/ proto/*.proto
 ```
+- 
