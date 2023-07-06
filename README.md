@@ -1,5 +1,14 @@
 # gRPSeek - Alpha
 
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ```bash
 ├── README.md
 ├── build
@@ -37,9 +46,53 @@
 │   └── webpack.prod.js
 ├── yarn-error.log
 └── yarn.lock
-
 ```
 
+## Set Up 
+Install dependencies
+```
+yarn install
+```
+Build/Run Containers:
+```
+docker-compose up
+docker-compose up -d // detach mode
+```
+Transpile Code:
+```
+yarn build 
+```
+Then start gRPC Server:
+```
+yarn server
+```
+Lastly, start development server:
+```
+yarn start
+```
+For production:
+```
+cd build
+npx serve
+```
+Visit the website at http://localhost:8081/
+
+Code Formatting using Prettier 
+```
+yarn format 
+```
+Code Linting with ESLint. Optional to specify the files. 
+```
+yarn lint <fileNames>
+```
+
+
+
+
+
+<details>
+  <summary>Personal Log of Work</summary>
+  
 - July 5th 12:08 AM
 Added dependencies to compile proto files with *protoc*
 ```
@@ -83,3 +136,23 @@ The proto-gen.sh file:
 yarn proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=proto/ proto/*.proto
 ```
 - 
+
+11:52PM 
+- Getting an import error in grpcServer.ts file. Going to split up tsconfig.json into two places, one in the server and one in the "client"(src). 
+
+```
+yarn tsc --project server/tsconfig.json
+```
+-> That worked. 
+- TypeScript files were able to transpile because of webpack. Webpack uses tools such as 'ts-loader' to transpile TypeScript to JavaScript, so that's why I didn't have `tsc`.
+- The `tsc` command is specifically tied to the TypeScript Compiler, which is not absolutely necessary if you are using build tools. 
+-> To avoid installing TypeScript globally with `tsc`, since we have TypeScript installed as a **devDependency* we can use `tsc` as a script "tsc". 
+```
+"tsc": "tsc"
+```
+> This is kinda weird but it worked lmaooo. 
+
+  
+</details>
+
+
