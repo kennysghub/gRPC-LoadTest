@@ -34,7 +34,6 @@ export default function SendMessage() {
        <label htmlFor="">Message</label>
        <input type="text" name="" id="" onChange={handleMsg}/>
        <button onClick={sendToEnvoy}>Submit Message</button>
-
     </div>
   )
 }

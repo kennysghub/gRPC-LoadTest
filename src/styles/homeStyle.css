@@ -1,0 +1,14 @@
+.home-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .title {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+  }
+  

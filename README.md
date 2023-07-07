@@ -3,12 +3,9 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
+
+File Tree
 ```bash
 ├── README.md
 ├── build
@@ -47,7 +44,8 @@
 ├── yarn-error.log
 └── yarn.lock
 ```
-
+## Prerequisites 
+Docker - Sets up a container for Envoy Proxy and Redis.
 ## Set Up 
 Install dependencies
 ```
@@ -86,9 +84,14 @@ Code Linting with ESLint. Optional to specify the files.
 yarn lint <fileNames>
 ```
 
+## Summary 
+This application is an example of how to use [gRPC-Web](https://grpc.io/docs/platforms/web/). 
 
+**gRPC** is a Remote Procedure Call (RPC) framework. At its core, gRPC uses HTTP/2 for transporting messages. This allows gRPC to take advantage of features such as ,multiplexing(multiple requests on the same connection), header compression, and server push. 
 
+> It's not possible to directly call a gRPC service from a browser. gRPC uses HTTP/2 features, and no browser provides the level of control required over web requests to support a gRPC client.  - James Newton-King
 
+**gRPC-Web** is a protocol developed by Google, that is a lighter-weight version of gRPC that's designed to work over both HTTP/1.1 and HTTP/2 connections. However, gRPC-Web currently does not have the support for Client Streaming and Bidrectional Streaming RPCs. 
 
 <details>
   <summary>Personal Log of Work</summary>
