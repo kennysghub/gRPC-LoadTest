@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package chat;
+
+// The chat service definition
+service ChatService {
+  // Unary RPC: Sends a single message to the server and gets a single response back
+  rpc SendMessage (ChatMessage) returns (ChatResponse) {}
+
+  // Server Streaming RPC: Sends a message to the server and gets a stream of messages back
+  rpc GetMessagesStream (ChatMessage) returns (stream ChatMessage) {}
+
+  // Client Streaming RPC: Sends a stream of messages to the server and gets a single response back
+  rpc SendMessageStream (stream ChatMessage) returns (ChatResponse) {}
+
+  // Bidirectional Streaming RPC: Sends a stream of messages to the server and gets a stream of messages back
+  rpc ChatStream (stream ChatMessage) returns (stream ChatMessage) {}
+}
+
+// The ChatMessage represents a single message sent by a user
+message ChatMessage {
+  string user = 1; // The user who sends the message
+  string message = 2; // The content of the message
+  int64 timestamp = 3; // The time the message was sent
+}
+
+// The ChatResponse represents the server's response to a sent message
+message ChatResponse {
+  string status = 1; // The status of the message delivery (e.g., "success", "failure")
+  string message = 2; // A message from the server
+}

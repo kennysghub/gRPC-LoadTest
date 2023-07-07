@@ -1,10 +1,14 @@
 import './styles.css';
+import HomePage from './pages/Home';
+import MessageForm from './components/MessageForm';
+import SendMessage from './SendMessage';
 export const App = () => {
-  return (
-    <div>
-      <h1>React TypeScript Webpack Starter Template</h1>
-      <p>{process.env.NODE_ENV}</p>
-      <p>{process.env.name}</p>
-    </div>
-  );
-};
+    
+    return (
+        <div>
+            <HomePage />
+            {/* <SendMessage /> */}
+            <MessageForm />
+        </div>
+    )
+}

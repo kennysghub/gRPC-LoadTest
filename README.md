@@ -1,18 +1,3 @@
-# gRPSeek-Alpha
-
-### To get started, install dependencies
-```
-yarn add
-##
-npm install
-```
-```
-yarn build
-```
-### To start development:
-```
-yarn start
-```
 
 ### To start production:
 ```
