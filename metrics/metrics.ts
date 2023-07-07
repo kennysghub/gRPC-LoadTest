@@ -32,13 +32,13 @@ const grpcRequestCounter: Counter<string> = new Counter({
     buckets: [ 100, 500, 1000, 2000 ],
   });
   
-export default function observeRequest(method:string, request:any):void{
+export default function observeRequest(method:any, request:any):void{
     const startTime = process.hrtime();
     //...observe other metrics
     const endTime = process.hrtime(startTime);
     const durationInSeconds = endTime[0] + endTime[1] / 1e9;
-    grpcMethodDurationHistogram.observe({ method }, durationInSeconds);
+    grpcMethodDurationHistogram.observe({ method:method }, durationInSeconds);
   
     const requestSizeBytes = Buffer.byteLength(JSON.stringify(request));
-    grpcRequestSizeHistogram.observe({ method }, requestSizeBytes);
+    grpcRequestSizeHistogram.observe({ method:method }, requestSizeBytes);
 }
